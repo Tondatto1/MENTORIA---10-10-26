@@ -9,6 +9,8 @@ interface Props {
   onUpdateGroupUrl: (url: string) => void;
 }
 
+const DEFAULT_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbw93N6jqvSQY0dduJpLBb8DFro21ohgiTSsVlNP5FayRHXlM_KR-H3-_06V9sYaHtjvbw/exec';
+
 export const AdminLeadsModal: React.FC<Props> = ({
   isOpen,
   onClose,
@@ -17,7 +19,7 @@ export const AdminLeadsModal: React.FC<Props> = ({
 }) => {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [customUrl, setCustomUrl] = useState(whatsappGroupUrl);
-  const [sheetsUrl, setSheetsUrl] = useState('');
+  const [sheetsUrl, setSheetsUrl] = useState(DEFAULT_SHEETS_WEBHOOK_URL);
   const [savedSuccess, setSavedSuccess] = useState(false);
   const [savedSheetsSuccess, setSavedSheetsSuccess] = useState(false);
   const [testingSheets, setTestingSheets] = useState(false);
@@ -34,7 +36,7 @@ export const AdminLeadsModal: React.FC<Props> = ({
         setLeads([]);
       }
       setCustomUrl(whatsappGroupUrl);
-      setSheetsUrl(localStorage.getItem('agro_sheets_webhook_url') || '');
+      setSheetsUrl(localStorage.getItem('agro_sheets_webhook_url') || DEFAULT_SHEETS_WEBHOOK_URL);
     }
   }, [isOpen, whatsappGroupUrl]);
 

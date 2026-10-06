@@ -7,6 +7,8 @@ interface Props {
   onSubmitSuccess: (lead: Lead) => void;
 }
 
+const OFFICIAL_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbw93N6jqvSQY0dduJpLBb8DFro21ohgiTSsVlNP5FayRHXlM_KR-H3-_06V9sYaHtjvbw/exec';
+
 export const LeadForm: React.FC<Props> = ({ onSubmitSuccess }) => {
   const [name, setName] = useState('');
   const [whatsapp, setWhatsapp] = useState('');
@@ -65,8 +67,8 @@ export const LeadForm: React.FC<Props> = ({ onSubmitSuccess }) => {
       localStorage.setItem('agro_mentoria_leads', JSON.stringify(existing));
       localStorage.setItem('agro_mentoria_current_user', JSON.stringify(newLead));
 
-      // Envia automaticamente para Google Planilhas se o Webhook estiver configurado
-      const sheetsWebhook = localStorage.getItem('agro_sheets_webhook_url');
+      // Envia automaticamente para o Google Planilhas oficial
+      const sheetsWebhook = localStorage.getItem('agro_sheets_webhook_url') || OFFICIAL_SHEETS_WEBHOOK_URL;
       if (sheetsWebhook && sheetsWebhook.startsWith('http')) {
         fetch(sheetsWebhook, {
           method: 'POST',
