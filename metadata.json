@@ -1,0 +1,6 @@
+{
+  "name": "Mentoria Comercial Agro | Marcelo Cerutti",
+  "description": "Mentoria online gratuita de negociação e performance comercial no agronegócio com Marcelo Cerutti.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
