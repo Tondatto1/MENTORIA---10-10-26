@@ -288,7 +288,7 @@ export default function App() {
 
       {/* Botão Flutuante de WhatsApp (Canto Inferior Direito: 67 99819-0294) */}
       <a
-        href="https://wa.me/5567998190294?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20a%20Mentoria%20Comercial%20Agro."
+        href="https://wa.me/5567998190294?text=Ol%C3%A1%2C%20gostaria%20de%20tirar%20uma%20d%C3%BAvida."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-5 right-5 z-40 group flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:bg-[#1caa4f] text-white p-3.5 sm:p-4 rounded-full shadow-2xl shadow-emerald-950/40 transition-all duration-300 hover:scale-110 active:scale-95 pulse-glow"
