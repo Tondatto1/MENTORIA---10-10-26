@@ -120,10 +120,13 @@ export default function App() {
               {/* Left Column: Headline, Mentoria Info, Destaque Data/Hora, Botão QUERO PARTICIPAR */}
               <div className="lg:col-span-7 space-y-5 sm:space-y-6 text-white text-center sm:text-left">
                 
-                {/* Authority Eyebrow: No Mobile exibe APENAS "MENTORIA FECHADA ONLINE", ocultando "Performance Comercial no Agro" */}
+                {/* Authority Eyebrow: Destaque e alto contraste para MENTORIA FECHADA ONLINE */}
                 <div className="flex items-center justify-center sm:justify-start gap-2">
-                  <span className="px-3 sm:px-3.5 py-1 rounded-full bg-emerald-400/20 border border-emerald-400/50 text-[#22c55e] text-[11px] sm:text-xs font-black uppercase tracking-wider shadow-sm flex items-center gap-1.5 animate-pulse">
-                    <span className="w-2 h-2 rounded-full bg-[#22c55e]" />
+                  <span className="px-4 py-1.5 rounded-full bg-[#22c55e] text-slate-950 text-xs sm:text-sm font-black uppercase tracking-wider shadow-xl shadow-emerald-950/70 border-2 border-emerald-300 flex items-center gap-2 transform transition-transform hover:scale-105">
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-950 opacity-60"></span>
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-slate-950"></span>
+                    </span>
                     MENTORIA FECHADA ONLINE
                   </span>
                   <span className="text-emerald-400/60 hidden sm:inline">·</span>
@@ -244,14 +247,23 @@ export default function App() {
               
               {/* ANCORAGEM EM COMPONENTE BRANCO: 100% RESPONSIVO PARA MOBILE */}
               <div className="text-center mb-4 sm:mb-6 px-1">
-                <div className="bg-white rounded-2xl sm:rounded-full py-2.5 sm:py-3.5 px-4 sm:px-8 shadow-xl shadow-slate-950/20 border-2 border-[#22c55e]/60 inline-flex flex-wrap items-center justify-center gap-2 sm:gap-4 transition-all duration-200 hover:border-[#22c55e] max-w-full">
-                  <span className="text-black font-black line-through decoration-rose-600 decoration-[3px] sm:decoration-4 text-xl sm:text-2xl md:text-3xl tracking-tight">
+                <div className="bg-white rounded-2xl sm:rounded-full py-2.5 sm:py-3.5 px-4 sm:px-8 shadow-xl shadow-slate-950/20 border-2 border-[#22c55e] inline-flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 transition-all duration-200 hover:shadow-2xl max-w-full">
+                  {/* Valor da ancoragem um pouco menor */}
+                  <span className="text-slate-700 font-extrabold line-through decoration-rose-600 decoration-2 text-sm sm:text-base md:text-lg tracking-tight whitespace-nowrap">
                     De R$ 1.497,00
                   </span>
-                  <span className="text-emerald-500 font-bold hidden sm:inline">·</span>
-                  <span className="bg-[#22c55e] text-slate-950 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs sm:text-sm font-black uppercase tracking-tight shadow-sm inline-block">
-                    NESTA EDIÇÃO: VOCÊ NÃO PAGA NADA
-                  </span>
+                  
+                  <span className="text-slate-300 font-bold hidden sm:inline">·</span>
+
+                  {/* VOCÊ NÃO PAGA NADA maior, super destacado e com alto contraste */}
+                  <div className="bg-[#22c55e] text-slate-950 px-4 py-1.5 sm:px-5 sm:py-2 rounded-xl sm:rounded-full shadow-md flex items-center gap-1.5 font-black">
+                    <span className="text-[11px] sm:text-xs text-slate-900 font-black uppercase tracking-wider opacity-90">
+                      NESTA EDIÇÃO:
+                    </span>
+                    <span className="text-base sm:text-lg md:text-xl font-black text-slate-950 uppercase tracking-tight">
+                      VOCÊ NÃO PAGA NADA
+                    </span>
+                  </div>
                 </div>
               </div>
 
