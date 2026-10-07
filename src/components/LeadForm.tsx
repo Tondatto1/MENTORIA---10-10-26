@@ -114,7 +114,7 @@ export const LeadForm: React.FC<Props> = ({ onSubmitSuccess }) => {
       </div>
 
       {/* Form Fields */}
-      <div className="p-6 sm:p-7 space-y-5">
+      <div className="p-4 sm:p-7 space-y-4 sm:space-y-5">
         <form onSubmit={handleSubmit} noValidate className="space-y-4">
           {/* Field 1: Nome */}
           <div>

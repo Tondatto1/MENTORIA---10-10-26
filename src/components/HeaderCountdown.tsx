@@ -43,7 +43,7 @@ export const HeaderCountdown: React.FC = () => {
   const pad = (n: number) => String(n).padStart(2, '0');
 
   return (
-    <div className="flex items-center gap-2 sm:gap-3.5 bg-gradient-to-r from-emerald-950 via-slate-950 to-emerald-950 border-2 border-[#22c55e]/90 px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl shadow-xl shadow-emerald-950/60 text-white backdrop-blur-lg transition-transform hover:scale-[1.02]">
+    <div className="flex items-center gap-1.5 sm:gap-3.5 bg-gradient-to-r from-emerald-950 via-slate-950 to-emerald-950 border-2 border-[#22c55e]/90 px-2 sm:px-4 py-1.5 sm:py-2 rounded-2xl shadow-xl shadow-emerald-950/60 text-white backdrop-blur-lg transition-transform hover:scale-[1.02] max-w-full">
       {/* Live Badge */}
       <div className="flex items-center gap-1.5 shrink-0">
         <span className="relative flex h-2.5 w-2.5">
