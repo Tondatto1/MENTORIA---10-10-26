@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Clock, ArrowRight, Settings, TrendingUp } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, TrendingUp } from 'lucide-react';
 import { HeaderCountdown } from './components/HeaderCountdown';
 import { LeadForm } from './components/LeadForm';
 import { ConfirmationScreen } from './components/ConfirmationScreen';
-import { AdminLeadsModal } from './components/AdminLeadsModal';
 import { Lead } from './types';
 import ceruttiPhoto from './assets/images/cerutti_foto.png';
 import ceruttiWebp from './assets/images/cerutti_foto.webp';
@@ -11,10 +10,9 @@ import logoImg from './assets/images/logo_branca.png';
 
 export default function App() {
   const [currentLead, setCurrentLead] = useState<Lead | null>(null);
-  const [isAdminOpen, setIsAdminOpen] = useState(false);
   const OFFICIAL_WHATSAPP_URL = 'https://chat.whatsapp.com/GMOV1AuBcOyBEN0NBlC1xG';
 
-  const [whatsappGroupUrl, setWhatsappGroupUrl] = useState<string>(() => {
+  const [whatsappGroupUrl] = useState<string>(() => {
     const stored = localStorage.getItem('agro_whatsapp_group_url');
     if (!stored || stored.includes('invite/mentoria-comercial-agro')) {
       return OFFICIAL_WHATSAPP_URL;
@@ -247,8 +245,8 @@ export default function App() {
               {/* ANCORAGEM EM COMPONENTE BRANCO: 100% RESPONSIVO PARA MOBILE */}
               <div className="text-center mb-4 sm:mb-6 px-1">
                 <div className="bg-white rounded-2xl sm:rounded-full py-2.5 sm:py-3.5 px-4 sm:px-8 shadow-xl shadow-slate-950/20 border-2 border-[#22c55e]/60 inline-flex flex-wrap items-center justify-center gap-2 sm:gap-4 transition-all duration-200 hover:border-[#22c55e] max-w-full">
-                  <span className="text-slate-950 font-black line-through decoration-rose-600 decoration-3 text-lg sm:text-2xl tracking-tight">
-                    De R$ 1.497
+                  <span className="text-black font-black line-through decoration-rose-600 decoration-[3px] sm:decoration-4 text-xl sm:text-2xl md:text-3xl tracking-tight">
+                    De R$ 1.497,00
                   </span>
                   <span className="text-emerald-500 font-bold hidden sm:inline">·</span>
                   <span className="bg-[#22c55e] text-slate-950 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs sm:text-sm font-black uppercase tracking-tight shadow-sm inline-block">
@@ -269,30 +267,12 @@ export default function App() {
 
       {/* Quiet Minimalist Footer */}
       <footer className="relative z-20 w-full border-t border-slate-200/80 bg-white/90 backdrop-blur-md py-4 px-4 text-center text-xs text-slate-600">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div className="max-w-6xl mx-auto flex items-center justify-center text-center">
           <div>
             © {new Date().getFullYear()} Mentoria Comercial Agro com Marcelo De Cerutti. Todos os direitos reservados.
           </div>
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setIsAdminOpen(true)}
-              className="inline-flex items-center gap-1 text-[11px] text-slate-500 hover:text-emerald-700 transition-colors cursor-pointer"
-              title="Gerenciar leads ou link do WhatsApp"
-            >
-              <Settings className="w-3 h-3" />
-              <span>Painel</span>
-            </button>
-          </div>
         </div>
       </footer>
-
-      {/* Admin Leads & WhatsApp URL modal */}
-      <AdminLeadsModal
-        isOpen={isAdminOpen}
-        onClose={() => setIsAdminOpen(false)}
-        whatsappGroupUrl={whatsappGroupUrl}
-        onUpdateGroupUrl={(url) => setWhatsappGroupUrl(url)}
-      />
     </div>
   );
 }
